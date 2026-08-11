@@ -8,7 +8,7 @@ Laid out as Claude Code **project skills** (`.claude/skills/<name>/SKILL.md`) �
 |---|---|---|
 | `reflect-session` | End-of-session retro: recaps what happened on its own, checks what memory already holds, asks only to confirm genuine gaps, saves user-confirmed entries to the right place, and names improvement opportunities. | **Plain Claude Code, today** — see its `## Host bindings` section. (Inside Bamboo it ships as the `brain-reflect` system skill; this is the host-neutral form.) |
 | `audit-agent` | Audits the context quality of an existing agent or skill (a `CLAUDE.md`, a `SKILL.md`, a workflow doc) and produces an adversarially-verified, leverage-ranked improvement roadmap. | **Plain Claude Code, today** — it only needs file reads. `improvement-loop-overview.md` beside it is the design context it cites. |
-| `author-opportunities` | The judgment layer between "gaps found" and "questions a customer actually answers": assess the open queue first, ask only for the delta memory doesn't hold, group into modules, rank, draft — human confirms before anything ships. | **Read as method.** It consumes artifacts produced by Bamboo's improvement loop, so it doesn't run standalone — but the method (the one rule, the dividing rule, dedup policy) is the point. |
+| `author-opportunities` | Turns audit findings, messy notes, failed runs, or repo/runtime gaps into a grouped opportunities roadmap: scan first, ask only for the delta, group into modules, rank, then work unresolved questions one at a time. | **Plain Claude Code, today** — it writes or updates `roadmap.md` / `opportunities.md`. |
 
 ## Try them
 
@@ -21,6 +21,7 @@ Laid out as Claude Code **project skills** (`.claude/skills/<name>/SKILL.md`) �
 Then:
 - At the end of a real working session, run `/reflect-session`.
 - Point `audit-agent` at any agent artifact you have — a Claude project's `CLAUDE.md`, a skill file, a written workflow. It works from a single pasted file.
+- Run `author-opportunities` after an audit or messy working session to turn findings into a ranked roadmap, then answer one focused question at a time.
 
 ## What we'd love your read on
 
